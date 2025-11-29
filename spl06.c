@@ -1,4 +1,5 @@
 #include "spl06.h"
+#include <stdio.h>
 
 // 校准系数
 int16_t C0;
@@ -38,9 +39,9 @@ uint8_t spl06_init(void)
     
     // 读取传感器ID
     spl06_read_reg(SP06_ID, &id);
-    
+    printf("spl06 id: 0x%02X\r\n", id);
     // 检查ID是否正确
-    if(id != 0x1D)
+    if(id != 0x10)
     {
         while(1)
         {
